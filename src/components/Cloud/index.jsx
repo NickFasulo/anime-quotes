@@ -8,6 +8,7 @@ export default function Cloud({ count = 4, radius = 20, quotes }) {
     const spherical = new THREE.Spherical()
     const phiSpan = Math.PI / (count + 1)
     const thetaSpan = (Math.PI * 2) / count
+
     for (let i = 1; i < count + 1; i++)
       for (let j = 0; j < count; j++)
         temp.push([
@@ -16,6 +17,7 @@ export default function Cloud({ count = 4, radius = 20, quotes }) {
           ),
           quotes[i].character
         ])
+
     return temp
   }, [count, radius, quotes])
 
