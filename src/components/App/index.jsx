@@ -15,7 +15,7 @@ export default function App() {
         'https://xavier-v-project-2-build-api-production.up.railway.app/quote'
       )
       const data = await response.json()
-      setQuotes(data.slice(0, 20))
+      setQuotes(data)
       setLoading(false)
     } catch (e) {
       throw new Error(e)
