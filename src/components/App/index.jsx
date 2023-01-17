@@ -6,7 +6,7 @@ import './app.css'
 
 export default function App() {
   const [quotes, setQuotes] = useState([])
-  const [selectedQuote, setSelectedQuote] = useState({})
+  // const [selectedQuote, setSelectedQuote] = useState({})
   const [loading, setLoading] = useState(true)
 
   const fetchData = async () => {
@@ -35,7 +35,7 @@ export default function App() {
   }
 
   return (
-    <Canvas className='main' dpr={[1, 2]} camera={{ position: [0, 0, 35], fov: 90 }}>
+    <Canvas className='canvas' dpr={[1, 2]} camera={{ position: [0, 0, 35], fov: 90 }}>
       <fog attach='fog' args={['#202025', 0, 80]} />
       <Cloud count={8} radius={20} quotes={quotes} />
       <TrackballControls />

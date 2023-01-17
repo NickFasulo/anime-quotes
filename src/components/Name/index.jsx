@@ -6,9 +6,8 @@ import * as THREE from 'three'
 export default function Name({ children, ...props }) {
   const color = new THREE.Color()
   const fontProps = {
-    font: '/Inter-Bold.woff',
     fontSize: 2.5,
-    letterSpacing: -0.05,
+    letterSpacing: -0.04,
     lineHeight: 1,
     'material-toneMapped': false
   }
@@ -36,7 +35,7 @@ export default function Name({ children, ...props }) {
       ref={ref}
       onPointerOver={over}
       onPointerOut={out}
-      onClick={() => console.log('clicked')}
+      // onClick={() => console.log('clicked')}
       {...props}
       {...fontProps}
       children={children}

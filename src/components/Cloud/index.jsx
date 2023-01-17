@@ -1,18 +1,9 @@
 import { useMemo } from 'react'
 import * as THREE from 'three'
+import shuffle from '../../utils/shuffle'
 import Name from '../Name'
 
 export default function Cloud({ count, radius, quotes }) {
-  const shuffle = array => {
-    for (let i = 0; i < array.length; i++) {
-      const j = Math.round(Math.random() * i)
-      const temp = array[i]
-      array[i] = array[j]
-      array[j] = temp
-    }
-    return array
-  }
-
   const shuffledQuotes = shuffle(quotes)
 
   const names = useMemo(() => {
@@ -20,7 +11,7 @@ export default function Cloud({ count, radius, quotes }) {
     const spherical = new THREE.Spherical()
     const phiSpan = Math.PI / (count + 1)
     const thetaSpan = (Math.PI * 2) / count
-    let quoteArrIdx = 0
+    let idx = 0
 
     for (let i = 1; i < count + 1; i++) {
       for (let j = 0; j < count; j++) {
@@ -28,16 +19,16 @@ export default function Cloud({ count, radius, quotes }) {
           new THREE.Vector3().setFromSpherical(
             spherical.set(radius, phiSpan * i, thetaSpan * j)
           ),
-          shuffledQuotes[quoteArrIdx].character
+          shuffledQuotes[idx].character
         ])
-        quoteArrIdx++
+        idx++
       }
     }
 
     return temp
   }, [count, radius, shuffledQuotes])
 
-  return names.map(([pos, word], index) => (
-    <Name key={index} position={pos} children={word} />
+  return names.map(([pos, name], i) => (
+    <Name key={i} position={pos} children={name} />
   ))
 }
