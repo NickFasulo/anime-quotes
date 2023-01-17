@@ -57,16 +57,10 @@ export default function App() {
         camera={{ position: [0, 0, 35], fov: 130 }}
       >
         <fog attach='fog' args={['#202025', 0, 80]} />
-        <Cloud
-          count={10}
-          radius={30}
-          quotes={quotes}
-          handleOpen={handleOpen}
-          handleClose={handleClose}
-        />
+        <Cloud count={10} radius={30} quotes={quotes} handleOpen={handleOpen} />
         <TrackballControls />
       </Canvas>
-      {open && <Quote data={selectedQuote} />}
+      {open && <Quote data={selectedQuote} handleClose={handleClose} />}
     </div>
   )
 }

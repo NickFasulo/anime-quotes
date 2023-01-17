@@ -14,7 +14,6 @@
     rgba(0, 0, 0, 0) 100%
   );
   padding: 2rem 6rem;
-  margin: auto;
   width: 20rem;
 }
 
@@ -28,7 +27,6 @@
   cursor: pointer;
   top: 1rem;
   right: 6rem;
-  /* color: #fa2720; */
   font-size: larger;
 }
 
