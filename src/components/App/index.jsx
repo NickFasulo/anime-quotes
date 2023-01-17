@@ -3,6 +3,7 @@ import { Canvas } from '@react-three/fiber'
 import { TrackballControls } from '@react-three/drei'
 import shuffle from '../../utils/shuffle'
 import Cloud from '../Cloud'
+import Quote from '../Quote'
 import './app.css'
 
 export default function App() {
@@ -30,9 +31,9 @@ export default function App() {
     fetchData()
   }, [])
 
-  const handleOpen = recipe => {
+  const handleOpen = quote => {
     setOpen(true)
-    setSelectedQuote(recipe)
+    setSelectedQuote(quote)
   }
 
   const handleClose = () => {
@@ -49,7 +50,7 @@ export default function App() {
   }
 
   return (
-    <>
+    <div className='main-container'>
       <Canvas
         className='canvas'
         dpr={[1, 2]}
@@ -65,7 +66,7 @@ export default function App() {
         />
         <TrackballControls />
       </Canvas>
-      {/* <div>{selectedQuote}</div> */}
-    </>
+      {open && <Quote data={selectedQuote} />}
+    </div>
   )
 }

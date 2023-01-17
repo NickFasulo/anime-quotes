@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import * as THREE from 'three'
 import Name from '../Name'
 
-export default function Cloud({ count, radius, quotes, open }) {
+export default function Cloud({ count, radius, quotes, ...props }) {
   const names = useMemo(() => {
     const temp = []
     const spherical = new THREE.Spherical()
@@ -27,6 +27,6 @@ export default function Cloud({ count, radius, quotes, open }) {
   }, [count, radius, quotes])
 
   return names.map(([pos, name, quote], i) => (
-    <Name key={i} position={pos} children={name} quote={quote} open={open} />
+    <Name key={i} position={pos} children={name} quote={quote} {...props} />
   ))
 }

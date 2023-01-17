@@ -1,0 +1,77 @@
+/* .quote {
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  top: 24%;
+  width: 100%;
+  height: 100%;
+}
+
+.quote-contents {
+  position: relative;
+  width: 100%;
+}
+
+.quote span {
+  position: absolute;
+  text-align: start;
+  font-size: larger;
+  color: #fa2720;
+  right: 10px;
+  top: 5px;
+}
+
+.quote p {
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem;
+  margin: auto;
+  width: 20rem;
+  height: fit-content;
+  color: white;
+  font-size: larger;
+  text-align: center;
+  text-shadow: 1px 1px 1px black;
+  background: radial-gradient(
+    circle,
+    rgba(25, 25, 25, 1) 70%,
+    rgba(0, 0, 0, 0) 85%,
+    rgba(0, 0, 0, 0) 100%
+  );
+} */
+
+.quote {
+  position: fixed;
+  z-index: 5;
+  top: 40%;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.quote-content {
+  position: relative;
+  background: radial-gradient(
+    circle,
+    rgba(25, 25, 25, 1) 70%,
+    rgba(0, 0, 0, 0) 85%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem 6rem;
+  margin: auto;
+  width: 20rem;
+}
+
+.quote-content p {
+  font-size: larger;
+  color: white;
+}
+
+.quote-content span {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  color: #fa2720;
+  font-size: larger;
+}
