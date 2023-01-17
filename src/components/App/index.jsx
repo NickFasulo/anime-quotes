@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { TrackballControls } from '@react-three/drei'
+import shuffle from '../../utils/shuffle'
 import Cloud from '../Cloud'
 import './app.css'
 
 export default function App() {
   const [quotes, setQuotes] = useState([])
-  // const [selectedQuote, setSelectedQuote] = useState({})
   const [loading, setLoading] = useState(true)
+  const [selectedQuote, setSelectedQuote] = useState({})
+  const [open, setOpen] = useState(false)
 
   const fetchData = async () => {
     try {
@@ -15,7 +17,9 @@ export default function App() {
         'https://xavier-v-project-2-build-api-production.up.railway.app/quote'
       )
       const data = await response.json()
-      setQuotes(data)
+      const shuffledData = shuffle(data)
+
+      setQuotes(shuffledData)
       setLoading(false)
     } catch (e) {
       throw new Error(e)
@@ -26,6 +30,16 @@ export default function App() {
     fetchData()
   }, [])
 
+  const handleOpen = recipe => {
+    setOpen(true)
+    setSelectedQuote(recipe)
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+    setSelectedQuote({})
+  }
+
   if (loading) {
     return (
       <main>
@@ -35,10 +49,23 @@ export default function App() {
   }
 
   return (
-    <Canvas className='canvas' dpr={[1, 2]} camera={{ position: [0, 0, 35], fov: 90 }}>
-      <fog attach='fog' args={['#202025', 0, 80]} />
-      <Cloud count={8} radius={20} quotes={quotes} />
-      <TrackballControls />
-    </Canvas>
+    <>
+      <Canvas
+        className='canvas'
+        dpr={[1, 2]}
+        camera={{ position: [0, 0, 35], fov: 130 }}
+      >
+        <fog attach='fog' args={['#202025', 0, 80]} />
+        <Cloud
+          count={10}
+          radius={30}
+          quotes={quotes}
+          handleOpen={handleOpen}
+          handleClose={handleClose}
+        />
+        <TrackballControls />
+      </Canvas>
+      {/* <div>{selectedQuote}</div> */}
+    </>
   )
 }

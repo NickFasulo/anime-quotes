@@ -12,6 +12,8 @@ export default function Name({ children, ...props }) {
     'material-toneMapped': false
   }
 
+  console.log(props)
+
   const [hovered, setHovered] = useState(false)
   const over = e => (e.stopPropagation(), setHovered(true))
   const out = () => setHovered(false)
@@ -35,9 +37,9 @@ export default function Name({ children, ...props }) {
       ref={ref}
       onPointerOver={over}
       onPointerOut={out}
-      // onClick={() => console.log('clicked')}
       {...props}
       {...fontProps}
+      onClick={() => console.log(hovered && props.quote)}
       children={children}
     />
   )
