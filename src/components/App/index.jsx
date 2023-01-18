@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { TrackballControls } from '@react-three/drei'
-import axios from 'axios'
+import { hasProp } from '../../utils/hasProp'
 import shuffle from '../../utils/shuffle'
 import Cloud from '../Cloud'
 import Quote from '../Quote'
+import axios from 'axios'
 import './app.css'
 
 export default function App() {
@@ -18,8 +19,8 @@ export default function App() {
       const response = await axios.get(
         'https://xavier-v-project-2-build-api-production.up.railway.app/quote'
       )
-      console.log(response)
-      const shuffledData = shuffle(response.data)
+      const filteredData = response.data.filter(hasProp('character'))
+      const shuffledData = shuffle(filteredData)
 
       setQuotes(shuffledData)
       setLoading(false)
