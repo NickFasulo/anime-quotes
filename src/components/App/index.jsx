@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { TrackballControls } from '@react-three/drei'
+import axios from 'axios'
 import shuffle from '../../utils/shuffle'
 import Cloud from '../Cloud'
 import Quote from '../Quote'
@@ -14,11 +15,11 @@ export default function App() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(
+      const response = await axios.get(
         'https://xavier-v-project-2-build-api-production.up.railway.app/quote'
       )
-      const data = await response.json()
-      const shuffledData = shuffle(data)
+      console.log(response)
+      const shuffledData = shuffle(response.data)
 
       setQuotes(shuffledData)
       setLoading(false)

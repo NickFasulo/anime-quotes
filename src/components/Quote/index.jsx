@@ -5,7 +5,7 @@ export default function Quote({ data, handleClose }) {
     <div class='quote'>
       <div class='quote-content'>
         <span onClick={() => handleClose()}>✕</span>
-        <p>{data}</p>
+        <p>"{data}"</p>
       </div>
     </div>
   )
