@@ -28,6 +28,7 @@
   top: 1rem;
   right: 6rem;
   font-size: larger;
+  transition: color 0.3s;
 }
 
 .quote-content span:hover {
