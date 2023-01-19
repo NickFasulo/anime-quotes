@@ -18,13 +18,15 @@ export default function App() {
       const response = await axios.get(
         'https://xavier-v-project-2-build-api-production.up.railway.app/quote'
       )
-      const filteredData = response.data.filter(quote => quote.character)
+      const filteredData = response.data.filter(
+        (item, index) => response.data.indexOf(item) === index
+      )
       const shuffledData = shuffle(filteredData)
 
       setQuotes(shuffledData)
       setLoading(false)
-    } catch (e) {
-      throw new Error(e)
+    } catch (error) {
+      throw new Error(error)
     }
   }
 
