@@ -9,6 +9,9 @@ h1 {
   color: white;
 }
 
+blank {
+}
+
 .canvas {
   height: 100vh !important;
 }
