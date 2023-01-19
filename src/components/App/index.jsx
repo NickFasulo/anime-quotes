@@ -19,9 +19,11 @@ export default function App() {
         'https://xavier-v-project-2-build-api-production.up.railway.app/quote'
       )
       const filteredData = response.data.filter(
-        (item, index) => response.data.indexOf(item) === index
+        (item, index) => response.data.indexOf(item) === index && item.character
       )
       const shuffledData = shuffle(filteredData)
+
+      console.log(shuffledData)
 
       setQuotes(shuffledData)
       setLoading(false)
