@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { TrackballControls } from '@react-three/drei'
 import shuffle from '../../utils/shuffle'
+import filter from '../../utils/filter'
 import Cloud from '../Cloud'
 import Quote from '../Quote'
 import axios from 'axios'
@@ -18,12 +19,7 @@ export default function App() {
       const response = await axios.get(
         'https://xavier-v-project-2-build-api-production.up.railway.app/quote'
       )
-      const filteredData = response.data
-        .filter(
-          (value, idx, quote) =>
-            idx === quote.findIndex(i => i.character === value.character)
-        )
-        .filter(idx => idx.character)
+      const filteredData = filter(response.data)
       const shuffledData = shuffle(filteredData)
 
       setQuotes(shuffledData)
