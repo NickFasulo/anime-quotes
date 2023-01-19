@@ -9,12 +9,6 @@ h1 {
   color: white;
 }
 
-.main-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .canvas {
   height: 100vh !important;
 }

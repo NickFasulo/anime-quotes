@@ -51,7 +51,7 @@ export default function App() {
   }
 
   return (
-    <div className='main-container'>
+    <main>
       <Canvas
         className='canvas'
         dpr={[1, 2]}
@@ -62,6 +62,6 @@ export default function App() {
         <TrackballControls />
       </Canvas>
       {open && <Quote data={selectedQuote} handleClose={handleClose} />}
-    </div>
+    </main>
   )
 }
