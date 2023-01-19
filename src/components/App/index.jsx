@@ -6,7 +6,7 @@ import filter from '../../utils/filter'
 import Cloud from '../Cloud'
 import Quote from '../Quote'
 import axios from 'axios'
-import './app.css'
+import './App.css'
 
 export default function App() {
   const [quotes, setQuotes] = useState([])
