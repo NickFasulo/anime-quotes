@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { Canvas } from '@react-three/fiber'
 import { TrackballControls } from '@react-three/drei'
+import { Canvas } from '@react-three/fiber'
 import shuffle from '../../utils/shuffle'
 import filter from '../../utils/filter'
 import Cloud from '../Cloud'
@@ -16,9 +16,7 @@ export default function App() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(
-        'https://xavier-v-project-2-build-api-production.up.railway.app/quote'
-      )
+      const response = await axios.get('https://type.fit/api/quotes')
       const filteredData = filter(response.data)
       const shuffledData = shuffle(filteredData)
 

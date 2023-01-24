@@ -2,7 +2,7 @@ export default function filter(array) {
   return array
     .filter(
       (value, idx, quote) =>
-        idx === quote.findIndex(i => i.character === value.character)
+        idx === quote.findIndex(i => i.author === value.author)
     )
-    .filter(idx => idx.character)
+    .filter(idx => idx.author)
 }

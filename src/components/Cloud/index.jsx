@@ -16,8 +16,8 @@ export default function Cloud({ count, radius, quotes, ...props }) {
           new THREE.Vector3().setFromSpherical(
             spherical.set(radius, phiSpan * i, thetaSpan * j)
           ),
-          quotes[idx].character,
-          quotes[idx].quote
+          quotes[idx].author,
+          quotes[idx].text
         ])
         idx++
       }
